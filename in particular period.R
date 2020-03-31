@@ -248,3 +248,18 @@ periods12 %>%
     ) +
     scale_x_discrete(limit = periods12$period)
 niche_index(PAs12, PNc12)
+
+
+
+
+
+
+
+# github test
+scanner <- scanner %>% 
+    select(2, 3, 4, 5, 6, 7, 8, 9, 10) %>% 
+    mutate(time = paste(Date, Time, sep = " ")) %>% 
+    mutate(TimeCST = ymd_hms(time, tz = "Asia/Taipei")) %>% 
+    filter(!is.na(TimeCST)) %>%     # filter wrong format(time)
+    select(1, 2, 7, 5, 6, 8, 9, 11) %>% 
+    filter(Species %in% c("As.", "Nc."))
